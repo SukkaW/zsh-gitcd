@@ -15,11 +15,11 @@ gitcd() {
         print -P "$dir %F{green}already exists.%F{reset}"
         print -P -n "%F{reset}cd $dir / delete $dir && git clone %F{green}[ %F{reset}y(default) %F{green}/%F{reset} n %F{green}]: %F{reset}"
         read __read_gitcd_option
-        if [ ! -n "$__read_gitcd_option" ]; then
+        if [[ ! -n "$__read_gitcd_option" ]]; then
             __read_gitcd_option="y"
         fi
 
-        if [ "${__read_gitcd_option}" = "y" ]; then
+        if [[ "${__read_gitcd_option}" = "y" ]]; then
             cd $dir
             print -P "%F{green}You are now at %F{reset}$dir%F{green}.%F{reset}"
         else
